@@ -13,7 +13,7 @@ def get_page(url: str) -> str:
     if url is None or len(url.strip()) == 0:
         return ''
     redis_store = redis.Redis()
-    res_key = 'result:{}'.format(url)
+    res_key = f'result:{url}'
     req_key = 'count:{}'.format(url)
     result = redis_store.get(res_key)
     if result is not None:
